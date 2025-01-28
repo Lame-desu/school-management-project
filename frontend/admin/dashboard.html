@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/dashboard.css" />
+  </head>
+  <body>
+    <header class="admin-header">
+      <div class="header-container">
+        <!-- Logo -->
+        <div class="logo">
+          <img src="../landing/assets/logo.png" alt="Logo" />
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+          <a href="./dashboard.html">Announcements</a>
+          <a href="./students.html">Students</a>
+        </nav>
+
+        <!-- Account Dropdown -->
+        <div class="account-dropdown">
+          <img
+            src="../landing/assets/logo.png"
+            alt="Account"
+            class="account-icon"
+          />
+          <div class="dropdown-menu">
+            <a href="/account-info">Account Info</a>
+            <a href="/logout">Log Out</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="announcement-page">
+      <div class="announcement-container">
+        <h1>Post Announcement</h1>
+        <form id="announcement-form" class="announcement-form">
+          <!-- Title -->
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Announcement Title"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="title">Summary</label>
+            <input
+              type="text"
+              id="summary"
+              name="summary"
+              placeholder="summary of the announcement"
+              required
+            />
+          </div>
+
+          <!-- Description -->
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="5"
+              placeholder="Write the announcement description here"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Visibility -->
+          <div class="form-group">
+            <label for="visibility">Visibility</label>
+            <select id="visibility" name="visibility" required>
+              <option value="public">Public</option>
+              <option value="private">Private</option>
+            </select>
+          </div>
+
+          <!-- Private Options -->
+          <div class="form-group" id="private-options" style="display: none">
+            <label for="private-type">Private Options</label>
+            <select id="private-type" name="private-type">
+              <option value="General">General (All Grades)</option>
+              <option value="Grade 1">Grade 1</option>
+              <option value="Grade 2">Grade 2</option>
+              <option value="Grade 3">Grade 3</option>
+              <option value="Grade 4">Grade 4</option>
+              <option value="Grade 5">Grade 5</option>
+              <option value="Grade 6">Grade 6</option>
+              <option value="Grade 7">Grade 7</option>
+              <option value="Grade 8">Grade 8</option>
+              <option value="Grade 9">Grade 9</option>
+              <option value="Grade 10">Grade 10</option>
+              <option value="Grade 11">Grade 11</option>
+              <option value="Grade 12">Grade 12</option>
+            </select>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit-button">Post Announcement</button>
+        </form>
+      </div>
+    </div>
+    <script src="./js/dashboard.js"></script>
+  </body>
+</html>

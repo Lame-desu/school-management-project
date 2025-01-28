@@ -1,0 +1,287 @@
+/* General Reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styling */
+.student-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #0047ab; /* School-themed primary color */
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Section */
+.logo-image {
+  height: 50px;
+  cursor: pointer;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item:hover {
+  background-color: #003580; /* Slightly darker shade for hover effect */
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown ul li {
+  padding: 10px 20px;
+}
+
+.dropdown ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.dropdown ul li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show Dropdown on Hover */
+.profile-section:hover .dropdown {
+  display: block;
+}
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: #f8f8f8;
+}
+
+/* Student Dashboard */
+.student-dashboard {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Profile Section */
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background: #e3f2fd;
+}
+
+.profile-info {
+  text-align: left;
+}
+
+.profile-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  border: 3px solid #4caf50;
+}
+
+/* Courses Section */
+#courses-section {
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background: #4caf50;
+  color: white;
+}
+
+/* Register Button */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff5722;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #e64a19;
+}
+
+/* Hidden Elements */
+.hidden {
+  display: none;
+}
+
+/* Footer Styling */
+.student-footer {
+  background-color: #0047ab; /* School-themed primary color */
+  color: white;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #ffd700; /* Highlight color */
+}
+
+/* Contact Info */
+.contact-info p {
+  margin: 8px 0;
+}
+
+.contact-info i {
+  margin-right: 10px;
+}
+
+/* Social Media Links */
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffd700;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #003580; /* Slightly darker shade for contrast */
+  font-size: 14px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide links on smaller screens */
+  }
+
+  .profile-section {
+    justify-content: space-between;
+    width: 100%;
+  }
+}

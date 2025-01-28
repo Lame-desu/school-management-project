@@ -1,0 +1,170 @@
+/* Header Styling */
+.admin-header {
+  background-color: #4a4a8c;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Logo Section */
+.logo img {
+  height: 40px;
+  cursor: pointer;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #74ebd5;
+}
+
+/* Account Dropdown */
+.account-dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.account-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.account-icon:hover {
+  transform: scale(1.1);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: white;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background: #4a4a8c;
+  color: white;
+}
+
+.account-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.announcement-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+}
+
+.announcement-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 100%;
+}
+
+.announcement-container h1 {
+  text-align: center;
+  color: #4a4a8c;
+  margin-bottom: 20px;
+}
+
+.announcement-form .form-group {
+  margin-bottom: 15px;
+}
+
+.announcement-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.announcement-form input,
+.announcement-form textarea,
+.announcement-form select {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f9f9f9;
+  transition: 0.3s ease;
+}
+
+.announcement-form input:focus,
+.announcement-form textarea:focus,
+.announcement-form select:focus {
+  border-color: #74ebd5;
+  outline: none;
+  background: #fff;
+}
+
+.announcement-form textarea {
+  resize: none;
+}
+
+.submit-button {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  color: #fff;
+  background: #4a4a8c;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background: #3c3c72;
+}

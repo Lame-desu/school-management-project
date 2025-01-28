@@ -1,0 +1,283 @@
+.student-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #0047ab; /* School-themed primary color */
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Section */
+.logo-image {
+  height: 50px;
+  cursor: pointer;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item:hover {
+  background-color: #003580; /* Slightly darker shade for hover effect */
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown ul li {
+  padding: 10px 20px;
+}
+
+.dropdown ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.dropdown ul li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show Dropdown on Hover */
+.profile-section:hover .dropdown {
+  display: block;
+}
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.contact-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+}
+
+.contact-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+}
+
+.contact-container h1 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  text-align: center;
+  color: #4a4a8c;
+}
+
+.contact-container p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f9f9f9;
+  box-sizing: border-box;
+  transition: 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #74ebd5;
+  outline: none;
+  background: #fff;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.send-button {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  color: #fff;
+  background: #4a4a8c;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.send-button:hover {
+  background: #3c3c72;
+}
+
+/* footer styling */
+.student-footer {
+  background-color: #0047ab; /* School-themed primary color */
+  color: white;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #ffd700; /* Highlight color */
+}
+
+/* Contact Info */
+.contact-info p {
+  margin: 8px 0;
+}
+
+.contact-info i {
+  margin-right: 10px;
+}
+
+/* Social Media Links */
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffd700;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #003580; /* Slightly darker shade for contrast */
+  font-size: 14px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide links on smaller screens */
+  }
+
+  .profile-section {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
