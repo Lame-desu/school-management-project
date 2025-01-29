@@ -96,8 +96,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       fullNameEl.textContent = `Full Name: ${result.student.fullname}`;
       usernameEl.textContent = `Username: ${result.student.username}`;
       gradeEl.textContent = `Grade Level: ${result.student.grade}`;
-      profilePicEl.src =
-        result.student.profile_picture || "../landing/assets/default-user.png";
+      profilePicEl.src = "../landing/assets/profile.jpg";
 
       // Check registration status
       handleStudentStatus(result.student.status, result.student.grade);

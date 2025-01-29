@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #0047ab; /* School-themed primary color */
+  background-color: #493d9e; /* School-themed primary color */
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -62,7 +62,7 @@
 .dropdown {
   display: none;
   position: absolute;
-  top: 60px;
+  top: 100%;
   right: 0;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -167,7 +167,7 @@ th {
 
 /* footer styling */
 .student-footer {
-  background-color: #0047ab; /* School-themed primary color */
+  background-color: #3b6790; /* School-themed primary color */
   color: white;
   padding: 20px 0;
   font-family: Arial, sans-serif;
@@ -262,4 +262,14 @@ th {
     justify-content: space-between;
     width: 100%;
   }
+}
+.dropdown_btn {
+  background-color: white; /* Bootstrap primary color */
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
 }

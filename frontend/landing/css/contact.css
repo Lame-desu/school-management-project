@@ -1,0 +1,178 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+/* header started */
+.site-header {
+  background-color: #493d9e; /* Dark background for contrast */
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center; /* Ensures the content aligns properly */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between; /* Space out logo, nav, and login */
+}
+
+/* Logo styling */
+.logo img {
+  height: 50px; /* Adjust height as needed */
+  width: auto;
+}
+
+/* Navigation styling */
+.main-nav {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* Space between nav items */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item .btn {
+  padding: 0.5rem 1rem;
+  background-color: rgba(
+    232,
+    222,
+    222,
+    0.901
+  ); /* Slightly lighter background for buttons */
+  color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item .btn:hover {
+  background-color: #555;
+}
+
+/* Login button */
+.login-button .btn {
+  padding: 0.5rem 1rem;
+  background-color: #ff5722; /* Accent color for login button */
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.login-button .btn:hover {
+  background-color: #e64a19;
+}
+/* header ended */
+/* Hero Section */
+.hero {
+  background: url("../assets/banner2.jpg") no-repeat center center/cover;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 50px;
+}
+
+/* Contact Info Grid */
+.contact-info {
+  padding: 40px 20px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.info-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info-card img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+/* Map Section */
+.map-section {
+  margin: 40px 0;
+}
+
+/* Contact Form */
+.contact-form {
+  padding: 40px 20px;
+  background: #f4f4f4;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: auto;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 100px;
+}
+
+.btn {
+  padding: 10px 15px;
+  background: #3b6790;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #388e3c;
+}
+
+/* footer started */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #3b6790;
+  color: white;
+  margin-top: 30px;
+}
+/* footer ended */
