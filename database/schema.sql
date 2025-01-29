@@ -22,3 +22,21 @@ CREATE TABLE subjects (
     grade_id INT NOT NULL,
     FOREIGN KEY (grade_id) REFERENCES grades(id) ON DELETE CASCADE
 );
+
+CREATE TABLE admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    grade_id INT NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    status ENUM('pending', 'registered') DEFAULT 'pending',
+    FOREIGN KEY (grade_id) REFERENCES grades(id) ON DELETE CASCADE
+);
+

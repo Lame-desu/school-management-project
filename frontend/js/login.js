@@ -33,19 +33,23 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const response = await fetch("../backend/auth.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password, role }),
-    });
+    const response = await fetch(
+      "http://localhost/website/school-management-website/backend/auth/login.php",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password, role }),
+      }
+    );
 
     const result = await response.json();
+    console.log(result);
 
     loginMessage.textContent = result.message;
     if (result.success) {
-      setTimeout(() => {
-        window.location.href = result.redirect;
-      }, 1500);
+      localStorage.setItem("token", result.token); // Store JWT token in local storage
+      localStorage.setItem("user", JSON.stringify(result.user)); // Store user details
+      window.location.href = result.redirect;
     }
   });
 

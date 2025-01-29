@@ -87,89 +87,77 @@
   display: block;
 }
 /*  */
+/* General Styling */
 body {
-  font-family: "Arial", sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #333;
-}
-
-.students-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #74ebd5, #9face6);
-}
-
-.students-container {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  max-width: 600px;
-  width: 100%;
   text-align: center;
+  background: #f4f4f4;
 }
 
+/* Container */
+.students-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Heading */
 h1 {
-  color: #4a4a8c;
-  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
 }
 
-.grade-selector {
-  margin-bottom: 20px;
-}
-
+/* Grade Selection */
 label {
-  font-size: 1rem;
   font-weight: bold;
   margin-right: 10px;
 }
 
-select {
+#grade-select {
   padding: 10px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
 }
 
-button {
-  padding: 10px 20px;
-  margin-left: 10px;
-  font-size: 1rem;
-  color: white;
-  background: #4a4a8c;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: #3c3c72;
-}
-
-.students-list {
+/* Students Table */
+table {
+  width: 100%;
   margin-top: 20px;
+  border-collapse: collapse;
+  background: #fff;
 }
 
-#students-count {
-  color: #4a4a8c;
-  margin-bottom: 15px;
-}
-
-#students-ul {
-  list-style: none;
-  padding: 0;
-}
-
-#students-ul li {
-  background: #f9f9f9;
+th,
+td {
+  padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 10px;
   text-align: left;
+}
+
+th {
+  background: #4caf50;
+  color: white;
+}
+
+tbody tr:hover {
+  background: #f1f1f1;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  table {
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
 }

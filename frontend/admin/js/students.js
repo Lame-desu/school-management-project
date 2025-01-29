@@ -1,43 +1,54 @@
 document.addEventListener("DOMContentLoaded", function () {
   const gradeSelect = document.getElementById("grade-select");
-  const fetchButton = document.getElementById("fetch-students-btn");
-  const studentsList = document.getElementById("students-ul");
-  const studentsCount = document.getElementById("students-count");
+  const studentsTableBody = document.getElementById("students-table");
 
-  // Fetch students for the selected grade
+  /**
+   * Fetch students based on selected grade
+   */
   async function fetchStudents(grade) {
+    if (!grade) {
+      studentsTableBody.innerHTML =
+        "<tr><td colspan='3'>Please select a grade.</td></tr>";
+      return;
+    }
+
     try {
-      // Replace with your backend API endpoint
       const response = await fetch(
-        `https://your-backend-api.com/students?grade=${encodeURIComponent(
-          grade
-        )}`
+        "http://localhost/website/school-management-website/backend/api/fetch_students.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ grade: grade }),
+        }
       );
-      if (!response.ok) {
-        throw new Error("Failed to fetch students.");
+
+      const result = await response.json();
+
+      if (!result.success) {
+        studentsTableBody.innerHTML = `<tr><td colspan='3'>${result.message}</td></tr>`;
+        return;
       }
 
-      const data = await response.json();
+      studentsTableBody.innerHTML = ""; // Clear previous data
 
-      // Update students list and count
-      studentsList.innerHTML = ""; // Clear the list
-      studentsCount.textContent = `Total Students: ${data.length}`;
-      data.forEach((student) => {
-        const li = document.createElement("li");
-        li.textContent = `${student.firstName} ${student.lastName} (ID: ${student.id})`;
-        studentsList.appendChild(li);
+      result.students.forEach((student) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+                  <td>${student.fullname}</td>
+                  <td>${student.username}</td>
+                  <td>${student.status}</td>
+              `;
+        studentsTableBody.appendChild(row);
       });
     } catch (error) {
       console.error("Error fetching students:", error);
-      studentsList.innerHTML =
-        "<li>Error fetching students. Please try again later.</li>";
-      studentsCount.textContent = "Total Students: 0";
+      studentsTableBody.innerHTML =
+        "<tr><td colspan='3'>Error loading students.</td></tr>";
     }
   }
 
-  // Add event listener to the fetch button
-  fetchButton.addEventListener("click", function () {
-    const selectedGrade = gradeSelect.value;
-    fetchStudents(selectedGrade);
+  // Event Listener for Grade Selection
+  gradeSelect.addEventListener("change", function () {
+    fetchStudents(this.value);
   });
 });

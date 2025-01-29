@@ -1,51 +1,86 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const paymentSection = document.getElementById("payment-section");
   const coursesSection = document.getElementById("courses-section");
   const coursesTable = document.getElementById("courses-table");
   const coursePriceEl = document.getElementById("course-price");
   const payButton = document.getElementById("pay-button");
 
-  // Simulated Backend Response
-  let student = {
-    fullname: "John Doe",
-    grade: "10",
-    status: "pending", // Change to "registered" after payment
-  };
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
+  console.log("here");
+  if (!user || !user.username) {
+    window.location.href = "../landing/login.html"; // Redirect if user is not found
+    return;
+  }
 
-  const subjectsByGrade = {
-    10: [
-      { subject: "Mathematics" },
-      { subject: "Science" },
-      { subject: "History" },
-      { subject: "English" },
-      { subject: "Computer Science" },
-    ],
-  };
+  /**
+   * Fetch student info to check status
+   */
+  async function fetchStudentInfo() {
+    try {
+      const response = await fetch(
+        "http://localhost/website/school-management-website/backend/api/fetch_student_info.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username: user.username }),
+        }
+      );
 
-  const coursePrices = {
-    10: 5000, // Simulated price for the course
-  };
+      const result = await response.json();
+      console.log(result);
+      if (!result.success) {
+        console.error("Failed to fetch student info:", result.message);
+        return;
+      }
 
-  function loadCoursesPage() {
-    const subjects = subjectsByGrade[student.grade] || [];
-    const coursePrice = coursePrices[student.grade] || 0;
-
-    if (student.status === "pending") {
-      // Show payment section
-      paymentSection.classList.remove("hidden");
-      coursePriceEl.textContent = `$${coursePrice}`;
-    } else {
-      // Show registered courses
-      coursesSection.classList.remove("hidden");
-      subjects.forEach((subject) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `<td>${subject.subject}</td>`;
-        coursesTable.appendChild(row);
-      });
+      if (result.student.status === "pending") {
+        paymentSection.classList.remove("hidden"); // Show payment form
+      } else {
+        fetchSubjects(result.student.grade); // Show enrolled courses
+      }
+    } catch (error) {
+      console.error("Error fetching student info:", error);
     }
   }
 
-  payButton.addEventListener("click", function () {
+  /**
+   * Fetch subjects for the student's grade
+   */
+  async function fetchSubjects(grade) {
+    try {
+      const response = await fetch(
+        "http://localhost/website/school-management-website/backend/api/fetch_subjects.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ grade: grade }),
+        }
+      );
+
+      const result = await response.json();
+
+      if (!result.success) {
+        console.error("Failed to fetch subjects:", result.message);
+        return;
+      }
+
+      coursesSection.classList.remove("hidden");
+
+      result.courses.forEach((course) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${course.subject}</td>`;
+        coursesTable.appendChild(row);
+      });
+    } catch (error) {
+      console.error("Error fetching subjects:", error);
+    }
+  }
+
+  /**
+   * Handle Payment & Update Student Status
+   */
+  payButton.addEventListener("click", async function () {
     const fullName = document.getElementById("full-name").value.trim();
     const accountNumber = document
       .getElementById("account-number")
@@ -57,14 +92,38 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Simulating Payment Processing
-    setTimeout(() => {
-      alert(`Payment successful via ${paymentMethod}. You are now registered.`);
-      student.status = "registered"; // Update status
-      paymentSection.classList.add("hidden");
-      loadCoursesPage(); // Reload UI with registered courses
-    }, 1500);
+    try {
+      const response = await fetch(
+        "http://localhost/website/school-management-website/backend/api/change_student_status.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: user.username,
+            status: "registered",
+          }),
+        }
+      );
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Payment successful! You are now registered.");
+        paymentSection.classList.add("hidden"); // Hide payment form
+        fetchSubjects(user.grade_id); // Fetch and display enrolled courses
+
+        // Update user status in localStorage
+        user.status = "registered";
+        localStorage.setItem("user", JSON.stringify(user));
+      } else {
+        alert("Payment failed: " + result.message);
+      }
+    } catch (error) {
+      console.error("Error processing payment:", error);
+      alert("An error occurred. Please try again.");
+    }
   });
 
-  loadCoursesPage();
+  // Initialize page
+  fetchStudentInfo();
 });
